@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Наращивание ресниц в Новосибирске | Мастер Екатерина</title>
+  <meta name="description" content="Профессиональное наращивание ресниц в Новосибирске. Авторский подход, премиум материалы, гарантия результата. Запишитесь онлайн." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&family=Raleway:ital,wght@1,400;1,500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css?v=69" />
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="#" class="logo">
+        <span class="logo__icon">✦</span>
+        <span class="logo__text">ЕКАТЕРИНА <span>LASH</span></span>
+      </a>
+      <nav class="nav" id="nav">
+        <a href="#services" class="nav__link">Услуги</a>
+        <a href="#about" class="nav__link">О мастере</a>
+        <a href="#portfolio" class="nav__link">Работы</a>
+        <a href="#reviews" class="nav__link">Отзывы</a>
+        <a href="#booking" class="nav__link nav__link--cta">Записаться</a>
+      </nav>
+      <button class="burger" id="burger" aria-label="Меню">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+  <!-- Мобильное меню вне header, чтобы избежать stacking context -->
+  <nav class="nav nav--mobile" id="nav-mobile">
+    <a href="#services" class="nav__link">Услуги</a>
+    <a href="#about" class="nav__link">О мастере</a>
+    <a href="#portfolio" class="nav__link">Работы</a>
+    <a href="#reviews" class="nav__link">Отзывы</a>
+    <a href="#booking" class="nav__link nav__link--cta">Записаться</a>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="hero__left">
+      <div class="hero__content">
+        <p class="hero__tag">Мастер по наращиванию ресниц · Новосибирск</p>
+        <h1 class="hero__title">
+          <nobr>Просыпайся красивой</nobr> <em>каждое утро</em>
+        </h1>
+        <p class="hero__subtitle">
+          Экономь 20 минут каждое утро. И&nbsp;чувствуй себя красивой — даже без&nbsp;макияжа.
+        </p>
+        <div class="hero__actions">
+          <a href="https://t.me/anna_lash_nsk?text=Привет!%20Хочу%20записаться%20на%20наращивание%20ресниц" class="btn btn--primary" target="_blank" rel="noopener">
+            Записаться в Telegram
+          </a>
+          <a href="#portfolio" class="btn btn--outline">Смотреть работы</a>
+        </div>
+        <div class="hero__trust">
+          <div class="trust-item">
+            <strong>3 года</strong>
+            <span>опыта</span>
+          </div>
+          <div class="trust-divider"></div>
+          <div class="trust-item">
+            <strong>500+</strong>
+            <span>клиентов</span>
+          </div>
+          <div class="trust-divider"></div>
+          <div class="trust-item">
+            <strong>Гарантия</strong>
+            <span>качества</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="hero__right"></div>
+    <div class="hero__scroll">
+      <span>Листай вниз</span>
+      <div class="scroll-arrow"></div>
+    </div>
+  </section>
+
+  <!-- ===== QUIZ PROMO ===== -->
+  <section class="quiz-promo">
+    <div class="container quiz-promo__inner">
+      <div class="quiz-promo__text">
+        <h2>Не знаешь, какой эффект<br>подойдёт тебе?</h2>
+        <p>Пройди мини-тест из&nbsp;3 вопросов — подберу идеальный вариант под&nbsp;форму твоих глаз</p>
+      </div>
+      <a href="#quiz" class="btn btn--primary">Пройти тест бесплатно</a>
+    </div>
+  </section>
+
+  <!-- ===== PORTFOLIO ===== -->
+  <section class="portfolio section" id="portfolio">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-tag">Портфолио</p>
+        <h2 class="section-title">Мои работы</h2>
+        <p class="section-subtitle">Найди свой эффект. От натурального до вау-взгляда!</p>
+      </div>
+
+      <div class="portfolio__tabs">
+        <button class="portfolio__tab active" data-filter="all">Все</button>
+        <button class="portfolio__tab" data-filter="classic">Классика</button>
+        <button class="portfolio__tab" data-filter="volume">Объём</button>
+        <button class="portfolio__tab" data-filter="fox">Лисий эффект</button>
+        <button class="portfolio__tab" data-filter="squirrel">Беличий эффект</button>
+        <button class="portfolio__tab" data-filter="doll">Кукольный эффект</button>
+      </div>
+
+      <div class="portfolio__slider-wrap">
+        <button class="portfolio__arrow" id="arrowPrev" aria-label="Назад">&#8249;</button>
+        <div class="portfolio__grid" id="portfolioGrid">
+          <div class="portfolio__item" data-cat="classic">
+            <div class="portfolio__img portfolio__img--1">
+              <img src="images/work-klassika.png" alt="Классика 1D" onerror="this.parentNode.classList.add('no-img')" />
+              <div class="portfolio__overlay"><span>Классика 1D</span><small>Натуральный эффект</small></div>
+            </div>
+            <div class="portfolio__caption">Классика 1D</div>
+          </div>
+          <div class="portfolio__item" data-cat="classic">
+            <div class="portfolio__img portfolio__img--5">
+              <img src="images/work-1-5d.png" alt="Объём 1.5D" onerror="this.parentNode.classList.add('no-img')" />
+              <div class="portfolio__overlay"><span>Объём 1.5D</span><small>Лёгкость и кокетство</small></div>
+            </div>
+            <div class="portfolio__caption">Объём 1.5D</div>
+          </div>
+          <div class="portfolio__item" data-cat="volume">
+            <div class="portfolio__img portfolio__img--2">
+              <img src="images/work-2d.png" alt="Объём 2D" onerror="this.parentNode.classList.add('no-img')" />
+              <div class="portfolio__overlay"><span>Объём 2D</span><small>Пышный взгляд</small></div>
+            </div>
+            <div class="portfolio__caption">Объём 2D</div>
+          </div>
+          <div class="portfolio__item" data-cat="volume">
+            <div class="portfolio__img portfolio__img--6">
+              <img src="images/work-3d.png" alt="Объём 3D" onerror="this.parentNode.classList.add('no-img')" />
+              <div class="portfolio__overlay"><span>Объём 3D</span><small>Роскошный эффект</small></div>
+            </div>
+            <div class="portfolio__caption">Объём 3D</div>
+          </div>
+          <div class="portfolio__item" data-cat="fox">
+            <div class="portfolio__img portfolio__img--3">
+              <img src="images/work-lisiy.png" alt="Лисий эффект" onerror="this.parentNode.classList.add('no-img')" />
+              <div class="portfolio__overlay"><span>Лисий эффект</span><small>Игривый взгляд</small></div>
+            </div>
+            <div class="portfolio__caption">Лисий эффект</div>
+          </div>
+          <div class="portfolio__item" data-cat="squirrel">
+            <div class="portfolio__img portfolio__img--4">
+              <img src="images/work-belichiy.png" alt="Беличий эффект" onerror="this.parentNode.classList.add('no-img')" />
+              <div class="portfolio__overlay"><span>Беличий эффект</span><small>Выразительный взгляд</small></div>
+            </div>
+            <div class="portfolio__caption">Беличий эффект</div>
+          </div>
+          <div class="portfolio__item" data-cat="doll">
+            <div class="portfolio__img portfolio__img--5">
+              <img src="images/work-kukolniy.png" alt="Кукольный эффект" onerror="this.parentNode.classList.add('no-img')" />
+              <div class="portfolio__overlay"><span>Кукольный эффект</span><small>Открытый взгляд</small></div>
+            </div>
+            <div class="portfolio__caption">Кукольный эффект</div>
+          </div>
+        </div>
+        <button class="portfolio__arrow" id="arrowNext" aria-label="Вперёд">&#8250;</button>
+      </div>
+
+      <div class="portfolio__footer">
+        <a href="https://www.instagram.com/" class="btn btn--outline" target="_blank" rel="noopener">
+          Смотреть все работы в Instagram
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SERVICES ===== -->
+  <section class="services section" id="services">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-tag">Прайс-лист</p>
+        <h2 class="section-title">Услуги и цены</h2>
+        <p class="section-subtitle">Честные цены без&nbsp;скрытых доплат. Не&nbsp;знаешь что выбрать — напиши, помогу подобрать технику бесплатно.</p>
+      </div>
+
+      <div class="services__slider-wrap">
+        <button class="services__arrow" id="srvArrowPrev" aria-label="Назад">&#8249;</button>
+        <div class="services__grid" id="servicesGrid">
+
+          <div class="service-card">
+            <div class="service-card__icon">✨</div>
+            <h3 class="service-card__title">Классика</h3>
+            <p class="service-card__desc">Одна ресничка на&nbsp;одну натуральную. Лёгкий натуральный эффект — идеально для&nbsp;первого раза.</p>
+            <ul class="service-card__features">
+              <li>Время: 1.5–2 часа</li>
+              <li>Держатся: 3–4 недели</li>
+              <li>Эффект: натуральный</li>
+            </ul>
+            <div class="service-card__price">
+              <strong>2 100 ₽</strong>
+            </div>
+            <a href="https://t.me/anna_lash_nsk?text=Хочу%20записаться%20на%20классику" class="btn btn--primary" target="_blank" rel="noopener">Записаться</a>
+          </div>
+
+          <div class="service-card">
+            <div class="service-card__icon">✨</div>
+            <h3 class="service-card__title">1.5D</h3>
+            <p class="service-card__desc">Полтора пучка на&nbsp;каждую ресничку. Чуть больше объёма при&nbsp;сохранении лёгкости и&nbsp;натуральности.</p>
+            <ul class="service-card__features">
+              <li>Время: 1.5–2 часа</li>
+              <li>Держатся: 3–4 недели</li>
+              <li>Эффект: лёгкий объём</li>
+            </ul>
+            <div class="service-card__price">
+              <strong>2 300 ₽</strong>
+            </div>
+            <a href="https://t.me/anna_lash_nsk?text=Хочу%20записаться%20на%201.5D" class="btn btn--primary" target="_blank" rel="noopener">Записаться</a>
+          </div>
+
+          <div class="service-card service-card--featured">
+            <div class="service-card__badge service-card__badge--gold">Хит</div>
+            <div class="service-card__icon">🔥</div>
+            <h3 class="service-card__title">2D</h3>
+            <p class="service-card__desc">2 тонкие ресницы на&nbsp;каждую натуральную. Пышный взгляд без&nbsp;утяжеления — самый популярный выбор моих клиенток.</p>
+            <ul class="service-card__features">
+              <li>Время: 2–2.5 часа</li>
+              <li>Держатся: 3–4 недели</li>
+              <li>Эффект: объёмный</li>
+            </ul>
+            <div class="service-card__price">
+              <strong>2 500 ₽</strong>
+            </div>
+            <a href="https://t.me/anna_lash_nsk?text=Хочу%20записаться%20на%202D" class="btn btn--white" target="_blank" rel="noopener">Записаться</a>
+          </div>
+
+          <div class="service-card">
+            <div class="service-card__icon">✨</div>
+            <h3 class="service-card__title">2.5D</h3>
+            <p class="service-card__desc">Насыщенный взгляд с&nbsp;выраженным объёмом. Отличный баланс между пышностью и&nbsp;естественностью.</p>
+            <ul class="service-card__features">
+              <li>Время: 2–2.5 часа</li>
+              <li>Держатся: 3–4 недели</li>
+              <li>Эффект: выразительный</li>
+            </ul>
+            <div class="service-card__price">
+              <strong>2 700 ₽</strong>
+            </div>
+            <a href="https://t.me/anna_lash_nsk?text=Хочу%20записаться%20на%202.5D" class="btn btn--primary" target="_blank" rel="noopener">Записаться</a>
+          </div>
+
+          <div class="service-card">
+            <div class="service-card__icon">✨</div>
+            <h3 class="service-card__title">3D</h3>
+            <p class="service-card__desc">3 ресницы в&nbsp;пучке — роскошный густой взгляд. Для&nbsp;тех, кто хочет максимального эффекта.</p>
+            <ul class="service-card__features">
+              <li>Время: 2.5–3 часа</li>
+              <li>Держатся: 3–4 недели</li>
+              <li>Эффект: драматичный</li>
+            </ul>
+            <div class="service-card__price">
+              <strong>2 900 ₽</strong>
+            </div>
+            <a href="https://t.me/anna_lash_nsk?text=Хочу%20записаться%20на%203D" class="btn btn--primary" target="_blank" rel="noopener">Записаться</a>
+          </div>
+
+          <div class="service-card">
+            <div class="service-card__icon">✨</div>
+            <h3 class="service-card__title">Снятие ресниц</h3>
+            <p class="service-card__desc">Аккуратное профессиональное снятие без&nbsp;повреждений. Безопасный ремувер, который растворяет клей, не&nbsp;трогая натуральные ресницы.</p>
+            <ul class="service-card__features">
+              <li>Время: 30–40 минут</li>
+              <li>Без болевых ощущений</li>
+              <li>Ресницы остаются здоровыми</li>
+            </ul>
+            <div class="service-card__price">
+              <strong>300 ₽</strong>
+              <span>бесплатно при записи на наращивание</span>
+            </div>
+            <a href="https://t.me/anna_lash_nsk?text=Хочу%20записаться%20на%20снятие%20ресниц" class="btn btn--primary" target="_blank" rel="noopener">Записаться</a>
+          </div>
+
+        </div>
+        <button class="services__arrow" id="srvArrowNext" aria-label="Вперёд">&#8250;</button>
+      </div>
+
+      <div class="services__note">
+        <span>✦</span>
+        <p>Не&nbsp;знаешь что выбрать? Напиши мне — бесплатно подберу технику под&nbsp;форму твоих глаз и&nbsp;желаемый эффект</p>
+        <a href="https://t.me/anna_lash_nsk?text=Помоги%20выбрать%20технику%20наращивания" target="_blank" rel="noopener" class="btn btn--ghost">Написать</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section class="about section" id="about">
+    <div class="container about__inner">
+      <div class="about__visual">
+        <div class="about__photo-wrap">
+          <div class="about__photo">
+            <img src="images/master2.jpg" alt="Екатерина — мастер по ресницам" onerror="this.style.display='none'" />
+            <div class="about__photo-placeholder">
+              <div class="placeholder-icon">✦</div>
+              <p>Фото мастера</p>
+            </div>
+          </div>
+          <div class="about__badge about__badge--1">
+            <div class="about__badge-icon">⭐</div>
+            <div>
+              <strong>4.9</strong>
+              <div class="about__badge-stars">★★★★★</div>
+              <span>средняя оценка</span>
+            </div>
+          </div>
+          <div class="about__badge about__badge--2">
+            <div class="about__badge-icon">🥰</div>
+            <div>
+              <strong>98%</strong>
+              <span>записываются повторно</span>
+            </div>
+          </div>
+        </div>
+        <div class="about__certs">
+          <div class="cert-item">
+            <span class="cert-icon">🏆</span>
+            <span>Сертифицированный мастер</span>
+          </div>
+          <div class="cert-item">
+            <span class="cert-icon">🇰🇷</span>
+            <span>Премиум материалы Кореи</span>
+          </div>
+          <div class="cert-item">
+            <span class="cert-icon">🎓</span>
+            <span>Постоянное обучение</span>
+          </div>
+        </div>
+      </div>
+      <div class="about__content">
+        <p class="section-tag">О мастере</p>
+        <h2 class="section-title">Привет, я Екатерина</h2>
+        <p class="about__lead">3 года назад я пришла на&nbsp;своё первое наращивание и&nbsp;влюбилась в&nbsp;это чувство — когда открываешь глаза и&nbsp;видишь себя другой.</p>
+        <p class="about__text">Тогда я решила научиться делать это для других. Прошла обучение, потом ещё одно, потом ещё — потому что в этой профессии нельзя останавливаться. Сегодня я работаю с техниками классики, объёма и мегаобъёма, знаю как подчеркнуть любую форму глаз и создать ресницы, которые ты не захочешь снимать.</p>
+        <p class="about__text">Мне важно, чтобы ты уходила не&nbsp;просто с&nbsp;красивыми ресницами, а&nbsp;с&nbsp;ощущением, что всё сделано именно для&nbsp;тебя.</p>
+
+        <div class="about__stats">
+          <div class="about__stat">
+            <strong>3</strong>
+            <span>года в профессии</span>
+          </div>
+          <div class="about__stat">
+            <strong>500+</strong>
+            <span>довольных клиенток</span>
+          </div>
+          <div class="about__stat">
+            <strong>12+</strong>
+            <span>курсов и сертификатов</span>
+          </div>
+        </div>
+
+        <div class="about__materials">
+          <h3>Что я использую в работе</h3>
+          <div class="materials-grid">
+            <div class="material-item">
+              <span class="material-icon">💧</span>
+              <div>
+                <strong>Клей Korea Glue Pro</strong>
+                <small>Гипоаллергенный, сертифицированный</small>
+              </div>
+            </div>
+            <div class="material-item">
+              <span class="material-icon">🪶</span>
+              <div>
+                <strong>Ресницы Lash Me Up</strong>
+                <small>Лёгкие, не нагружают натуральные</small>
+              </div>
+            </div>
+            <div class="material-item">
+              <span class="material-icon">🛡️</span>
+              <div>
+                <strong>Патчи Inna Beauty</strong>
+                <small>Не раздражают кожу вокруг глаз</small>
+              </div>
+            </div>
+            <div class="material-item">
+              <span class="material-icon">✅</span>
+              <div>
+                <strong>Все материалы с сертификатами</strong>
+                <small>Документы покажу по запросу</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== HOW IT WORKS ===== -->
+  <section class="steps section">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-tag">Как всё проходит</p>
+        <h2 class="section-title">4 шага до идеальных ресниц</h2>
+      </div>
+      <div class="steps__grid">
+        <div class="step-card">
+          <div class="step-card__num">01</div>
+          <div class="step-card__icon">💬</div>
+          <h3>Запись и консультация</h3>
+          <p>Пишешь мне, я уточняю желаемый эффект и&nbsp;форму глаз. Подбираем удобное время.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-card__num">02</div>
+          <div class="step-card__icon">✨</div>
+          <h3>Подготовка</h3>
+          <p>Подготавливаю рабочее место. Ты удобно устраиваешься, я накладываю патчи и&nbsp;мы начинаем — никакой боли.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-card__num">03</div>
+          <div class="step-card__icon">🎯</div>
+          <h3>Наращивание</h3>
+          <p>Аккуратно прикрепляю каждую ресничку. Можно дремать — многие засыпают. Процедура занимает 1.5–3 часа.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-card__num">04</div>
+          <div class="step-card__icon">🌟</div>
+          <h3>Результат и уход</h3>
+          <p>Смотришь в&nbsp;зеркало и&nbsp;улыбаешься. Рассказываю как ухаживать, чтобы ресницы держались максимально долго.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== GUARANTEE ===== -->
+  <section class="guarantee section">
+    <div class="container guarantee__inner">
+      <div class="guarantee__icon">🛡️</div>
+      <div class="guarantee__content">
+        <h2>Гарантия качества</h2>
+        <p class="guarantee__main">Если в&nbsp;течение <strong>недели</strong> выпадет более <strong>30% ресниц</strong> — исправлю бесплатно.</p>
+        <p class="guarantee__sub">Я уверена в&nbsp;своей работе и&nbsp;материалах. За&nbsp;3 года к&nbsp;гарантии обращались единицы — и&nbsp;всегда по&nbsp;уважительным причинам.</p>
+        <div class="guarantee__list">
+          <div class="guarantee-item">
+            <span>✓</span>
+            <span>Профессиональные материалы с сертификатами</span>
+          </div>
+          <div class="guarantee-item">
+            <span>✓</span>
+            <span>Каждая ресничка крепится к одной натуральной</span>
+          </div>
+          <div class="guarantee-item">
+            <span>✓</span>
+            <span>Даю рекомендации по уходу после процедуры</span>
+          </div>
+          <div class="guarantee-item">
+            <span>✓</span>
+            <span>Отвечу на любой вопрос после процедуры в мессенджере</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== QUIZ ===== -->
+  <section class="quiz section" id="quiz">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-tag">Бесплатный подбор</p>
+        <h2 class="section-title">Какие ресницы подойдут именно тебе?</h2>
+        <p class="section-subtitle">Ответь на&nbsp;3 вопроса — и&nbsp;я подберу идеальный эффект под&nbsp;твою форму глаз</p>
+      </div>
+
+      <div class="quiz__wrapper">
+        <div class="quiz__steps">
+          <div class="quiz__step active" id="quiz-step-1">
+            <h3>Какой образ тебе ближе?</h3>
+            <div class="quiz__options">
+              <button class="quiz__option" data-next="2" data-value="natural">
+                <span class="quiz__option-icon">🌿</span>
+                <strong>Натуральный</strong>
+                <small>Чтобы ресницы выглядели как свои, только лучше</small>
+              </button>
+              <button class="quiz__option" data-next="2" data-value="elegant">
+                <span class="quiz__option-icon">🌸</span>
+                <strong>Элегантный</strong>
+                <small>Выразительный взгляд, но без излишеств</small>
+              </button>
+              <button class="quiz__option" data-next="2" data-value="glamour">
+                <span class="quiz__option-icon">✨</span>
+                <strong>Гламурный</strong>
+                <small>Максимальный объём и вау-эффект</small>
+              </button>
+              <button class="quiz__option" data-next="2" data-value="bold">
+                <span class="quiz__option-icon">🔥</span>
+                <strong>Дерзкий</strong>
+                <small>Яркий акцент, выделиться из толпы</small>
+              </button>
+            </div>
+          </div>
+
+          <div class="quiz__step" id="quiz-step-2">
+            <h3>Как ты проводишь большую часть времени?</h3>
+            <div class="quiz__options">
+              <button class="quiz__option" data-next="3" data-value="office">
+                <span class="quiz__option-icon">💼</span>
+                <strong>Работа / офис</strong>
+                <small>Деловой стиль, дресс-код</small>
+              </button>
+              <button class="quiz__option" data-next="3" data-value="active">
+                <span class="quiz__option-icon">🏃‍♀️</span>
+                <strong>Активная жизнь</strong>
+                <small>Спорт, прогулки, путешествия</small>
+              </button>
+              <button class="quiz__option" data-next="3" data-value="social">
+                <span class="quiz__option-icon">🥂</span>
+                <strong>Светская жизнь</strong>
+                <small>События, встречи, фото</small>
+              </button>
+              <button class="quiz__option" data-next="3" data-value="home">
+                <span class="quiz__option-icon">🏡</span>
+                <strong>Дом / уют</strong>
+                <small>Работаю дома, встречи с близкими</small>
+              </button>
+            </div>
+          </div>
+
+          <div class="quiz__step" id="quiz-step-3">
+            <h3>Какая форма глаз у тебя?</h3>
+            <div class="quiz__options">
+              <button class="quiz__option" data-next="result" data-value="round">
+                <span class="quiz__option-icon">👁️</span>
+                <strong>Круглые</strong>
+              </button>
+              <button class="quiz__option" data-next="result" data-value="almond">
+                <span class="quiz__option-icon">✨</span>
+                <strong>Миндалевидные</strong>
+              </button>
+              <button class="quiz__option" data-next="result" data-value="narrow">
+                <span class="quiz__option-icon">🌙</span>
+                <strong>Узкие / восточный разрез</strong>
+              </button>
+              <button class="quiz__option" data-next="result" data-value="dontknow">
+                <span class="quiz__option-icon">🤷‍♀️</span>
+                <strong>Не знаю</strong>
+              </button>
+            </div>
+          </div>
+
+          <div class="quiz__step" id="quiz-step-result">
+            <div class="quiz__result">
+              <div class="quiz__result-icon">🎉</div>
+              <h3>Отлично! Я знаю, что тебе подойдёт</h3>
+              <p class="quiz__result-text">На&nbsp;основе твоих ответов я подготовлю персональную рекомендацию по&nbsp;технике и&nbsp;эффекту. Напиши мне — расскажу всё подробнее и&nbsp;запишем тебя <nobr>на удобное время!</nobr></p>
+              <a href="https://t.me/anna_lash_nsk?text=Прошла%20тест%20на%20сайте!%20Хочу%20узнать%20какие%20ресницы%20мне%20подойдут" class="btn btn--primary" target="_blank" rel="noopener">
+                Получить рекомендацию в Telegram
+              </a>
+              <button class="btn btn--ghost quiz__restart">Пройти снова</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="quiz__progress">
+          <div class="quiz__progress-bar" id="quiz-progress"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== REVIEWS ===== -->
+  <section class="reviews section" id="reviews">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-tag">Отзывы</p>
+        <h2 class="section-title">Что говорят клиентки</h2>
+        <p class="section-subtitle">Реальные отзывы из Telegram и Instagram</p>
+      </div>
+
+      <div class="reviews__grid">
+
+        <div class="review-card">
+          <div class="review-card__header">
+            <div class="review-card__avatar">М</div>
+            <div>
+              <strong>Мария К.</strong>
+              <div class="review-card__stars">★★★★★</div>
+            </div>
+          </div>
+          <p>"Катя — лучший мастер, к&nbsp;которому я ходила! Ресницы держатся уже 4 недели, ни&nbsp;одна не&nbsp;спала. Подобрала эффект под&nbsp;мои глаза — говорю всем подругам."</p>
+          <span class="review-card__date">2 недели назад · Instagram</span>
+        </div>
+
+        <div class="review-card">
+          <div class="review-card__header">
+            <div class="review-card__avatar">О</div>
+            <div>
+              <strong>Оксана Р.</strong>
+              <div class="review-card__stars">★★★★★</div>
+            </div>
+          </div>
+          <p>"Боялась, что будет больно или&nbsp;некомфортно — вообще не&nbsp;так! Задремала прямо на&nbsp;процедуре. Проснулась — и&nbsp;не&nbsp;узнала себя в&nbsp;зеркале 😍 Уже записалась на&nbsp;коррекцию."</p>
+          <span class="review-card__date">1 месяц назад · Telegram</span>
+        </div>
+
+        <div class="review-card">
+          <div class="review-card__header">
+            <div class="review-card__avatar">Е</div>
+            <div>
+              <strong>Екатерина В.</strong>
+              <div class="review-card__stars">★★★★★</div>
+            </div>
+          </div>
+          <p>"Хожу к&nbsp;Кате уже год. Других мастеров даже не&nbsp;рассматриваю. Ресницы всегда выглядят натурально, никогда не&nbsp;торчат в&nbsp;стороны. Муж думает, что это мои 😄"</p>
+          <span class="review-card__date">3 месяца · постоянная клиентка</span>
+        </div>
+
+        <div class="review-card">
+          <div class="review-card__header">
+            <div class="review-card__avatar">Н</div>
+            <div>
+              <strong>Наталья С.</strong>
+              <div class="review-card__stars">★★★★★</div>
+            </div>
+          </div>
+          <p>"Первый раз делала наращивание — было много страхов. Катя всё объяснила, показала примеры, успокоила. Результат превзошёл ожидания! Экономлю 20 минут каждое утро."</p>
+          <span class="review-card__date">3 недели назад · Профи.ру</span>
+        </div>
+
+        <div class="review-card">
+          <div class="review-card__header">
+            <div class="review-card__avatar">А</div>
+            <div>
+              <strong>Алина Т.</strong>
+              <div class="review-card__stars">★★★★★</div>
+            </div>
+          </div>
+          <p>"Делала лисий эффект — это просто огонь! Взгляд стал совершенно другим. Очень аккуратная работа, клей нигде не чувствуется. Всем советую!"</p>
+          <span class="review-card__date">1 месяц назад · 2ГИС</span>
+        </div>
+
+        <div class="review-card">
+          <div class="review-card__header">
+            <div class="review-card__avatar">Ю</div>
+            <div>
+              <strong>Юлия М.</strong>
+              <div class="review-card__stars">★★★★★</div>
+            </div>
+          </div>
+          <p>"У&nbsp;меня чувствительные глаза и&nbsp;аллергия на&nbsp;косметику. Катя использует гипоаллергенный клей, показала сертификаты. Никакого раздражения! Очень ответственный подход."</p>
+          <span class="review-card__date">2 месяца назад · Telegram</span>
+        </div>
+
+      </div>
+
+      <div class="reviews__rating">
+        <div class="rating-block">
+          <strong class="rating-block__num">4.9</strong>
+          <span>средняя оценка</span>
+        </div>
+        <div class="rating-block">
+          <strong class="rating-block__num">98%</strong>
+          <span>записываются повторно</span>
+        </div>
+        <div class="rating-block">
+          <strong class="rating-block__num">500+</strong>
+          <span>довольных клиенток</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section class="faq section" id="faq">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-tag">Вопрос — ответ</p>
+        <h2 class="section-title">Часто спрашивают</h2>
+      </div>
+
+      <div class="faq__list">
+
+        <div class="faq__item">
+          <button class="faq__question">
+            Вредно ли наращивание для натуральных ресниц?
+            <span class="faq__icon">+</span>
+          </button>
+          <div class="faq__answer">
+            <p>При правильном выполнении — нет. Я крепляю одну ресничку к&nbsp;одной натуральной, не&nbsp;склеивая их между собой. Натуральный рост не&nbsp;нарушается. Важно соблюдать уход и&nbsp;делать коррекции вовремя — тогда свои ресницы остаются здоровыми.</p>
+          </div>
+        </div>
+
+        <div class="faq__item">
+          <button class="faq__question">
+            Больно ли во время процедуры?
+            <span class="faq__icon">+</span>
+          </button>
+          <div class="faq__answer">
+            <p>Абсолютно нет. Ты лежишь с&nbsp;закрытыми глазами, большинство клиенток дремает или&nbsp;засыпает. Единственное ощущение — лёгкая прохлада от&nbsp;клея в&nbsp;первые минуты. Если чувствуешь дискомфорт во&nbsp;время процедуры — сразу говоришь, я останавливаюсь.</p>
+          </div>
+        </div>
+
+        <div class="faq__item">
+          <button class="faq__question">
+            Сколько держатся ресницы?
+            <span class="faq__icon">+</span>
+          </button>
+          <div class="faq__answer">
+            <p>В среднем 3–4 недели. Зависит от&nbsp;типа кожи (жирная — держатся меньше), образа жизни (спорт, сауна сокращают срок), и&nbsp;ухода. Я подробно расскажу после процедуры, как продлить результат.</p>
+          </div>
+        </div>
+
+        <div class="faq__item">
+          <button class="faq__question">
+            Что будет, если я аллергик?
+            <span class="faq__icon">+</span>
+          </button>
+          <div class="faq__answer">
+            <p>Я использую гипоаллергенный клей с&nbsp;сертификатом безопасности. Если у&nbsp;тебя есть аллергические реакции на&nbsp;косметику — предупреди заранее. По&nbsp;запросу могу провести тест-полосу на&nbsp;запястье перед процедурой.</p>
+          </div>
+        </div>
+
+        <div class="faq__item">
+          <button class="faq__question">
+            Как подготовиться к процедуре?
+            <span class="faq__icon">+</span>
+          </button>
+          <div class="faq__answer">
+            <p>Приди с чистыми ресницами — без туши, теней и масляных средств вокруг глаз. Умой лицо перед процедурой. Не используй кондиционер для ресниц за 2 дня до визита. Линзы лучше снять или взять контейнер.</p>
+          </div>
+        </div>
+
+        <div class="faq__item">
+          <button class="faq__question">
+            Что если мне не понравится результат?
+            <span class="faq__icon">+</span>
+          </button>
+          <div class="faq__answer">
+            <p>Мы всегда обсуждаем желаемый результат до&nbsp;процедуры — я показываю примеры и&nbsp;объясняю, что подойдёт именно тебе. Если что-то пошло не&nbsp;так в&nbsp;течение недели — исправлю бесплатно. Мне важно, чтобы ты ушла довольной.</p>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== LOYALTY ===== -->
+  <section class="loyalty section">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-tag">Программа лояльности</p>
+        <h2 class="section-title">Приятные бонусы для постоянных клиенток</h2>
+      </div>
+      <div class="loyalty__grid">
+        <div class="loyalty-card">
+          <div class="loyalty-card__icon">🎁</div>
+          <h3>Первый визит</h3>
+          <p>Скидка <strong>10%</strong> на&nbsp;первое наращивание при&nbsp;записи через сайт</p>
+        </div>
+<div class="loyalty-card">
+          <div class="loyalty-card__icon">👑</div>
+          <h3>Постоянная клиентка</h3>
+          <p>Каждое <strong>6-е посещение</strong> — скидка 15% на процедуру</p>
+        </div>
+        <div class="loyalty-card">
+          <div class="loyalty-card__icon">🎂</div>
+          <h3>День рождения</h3>
+          <p>Скидка <strong>15%</strong> на&nbsp;процедуру в&nbsp;месяц твоего рождения — просто предупреди заранее</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== BOOKING ===== -->
+  <section class="booking section" id="booking">
+    <div class="container booking__inner">
+      <div class="booking__content">
+        <p class="section-tag">Запись</p>
+        <h2 class="section-title">Запишись на процедуру</h2>
+        <p>Выбери удобный способ связи — отвечу в&nbsp;течение 15 минут в&nbsp;рабочее время.</p>
+
+        <div class="booking__messengers">
+          <a href="https://t.me/anna_lash_nsk" class="messenger-btn messenger-btn--tg" target="_blank" rel="noopener">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+            Telegram
+          </a>
+          <a href="tel:+79833948789" class="messenger-btn messenger-btn--phone">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.63A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
+            Позвонить
+          </a>
+        </div>
+
+        <div class="booking__info">
+          <div class="booking__info-item">
+            <span>📍</span>
+            <div>
+              <strong>Адрес</strong>
+              <span>Новосибирск, ул. Ольги Жилиной, 32</span>
+            </div>
+          </div>
+          <div class="booking__info-item">
+            <span>🕐</span>
+            <div>
+              <strong>Время работы</strong>
+              <span>Пн–Сб: 9:00 – 20:00, Вс: по записи</span>
+            </div>
+          </div>
+          <div class="booking__info-item">
+            <span>💬</span>
+            <div>
+              <strong>Ответ на запись</strong>
+              <span>В&nbsp;течение 15 минут в&nbsp;рабочее время</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="booking__form-wrap">
+        <form class="booking__form" id="bookingForm" novalidate>
+          <h3>Или оставь заявку,<br>и&nbsp;я перезвоню ✨</h3>
+          <div class="form-group">
+            <label for="name">Твоё имя</label>
+            <input type="text" id="name" name="name" placeholder="Анна" required />
+          </div>
+          <div class="form-group">
+            <label for="phone">Номер телефона</label>
+            <input type="tel" id="phone" name="phone" placeholder="+7 (900) 000-00-00" required />
+          </div>
+          <div class="form-group">
+            <label for="service">Интересует услуга</label>
+            <select id="service" name="service">
+              <option value="">Выберите услугу</option>
+              <option>Классика</option>
+              <option>1.5D</option>
+              <option>2D</option>
+              <option>2.5D</option>
+              <option>3D</option>
+              <option>Снятие ресниц</option>
+              <option>Помогите выбрать</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="time">Удобное время</label>
+            <input type="text" id="time" name="time" placeholder="Например: будни вечером" />
+          </div>
+          <button type="submit" class="btn btn--primary btn--full">Отправить заявку</button>
+          <p class="form-note">Нажимая кнопку, вы соглашаетесь с <a href="#">политикой конфиденциальности</a></p>
+        </form>
+        <div class="booking__form-success" id="formSuccess">
+          <div class="success-icon">✓</div>
+          <h3>Заявка отправлена!</h3>
+          <p>Свяжусь с&nbsp;тобой в&nbsp;течение 15 минут. Если срочно — пиши в&nbsp;Telegram.</p>
+          <a href="https://t.me/anna_lash_nsk" class="btn btn--primary" target="_blank" rel="noopener">Написать сейчас</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <a href="#" class="logo">
+          <span class="logo__icon">✦</span>
+          <span class="logo__text">ЕКАТЕРИНА <span>LASH</span></span>
+        </a>
+        <p>Наращивание ресниц в Новосибирске.<br />Красота, которую ты заслуживаешь.</p>
+      </div>
+      <div class="footer__links">
+        <h4>Навигация</h4>
+        <a href="#services">Услуги и цены</a>
+        <a href="#about">О мастере</a>
+        <a href="#portfolio">Портфолио</a>
+        <a href="#reviews">Отзывы</a>
+        <a href="#faq">Вопросы</a>
+        <a href="#booking">Записаться</a>
+      </div>
+      <div class="footer__contacts">
+        <h4>Контакты</h4>
+        <a href="tel:+79833948789">+7 (983) 394-87-89</a>
+        <a href="https://t.me/anna_lash_nsk" target="_blank" rel="noopener">Telegram</a>
+        <a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a>
+        <p class="footer__address">Новосибирск, ул. Ольги Жилиной, 32</p>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <div class="container">
+        <span>© 2026 Екатерина Lash. Все права защищены.</span>
+        <a href="#">Политика конфиденциальности</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== STICKY CTA ===== -->
+  <div class="sticky-cta" id="stickyCta">
+    <a href="https://t.me/anna_lash_nsk?text=Привет!%20Хочу%20записаться%20на%20наращивание%20ресниц" class="btn btn--primary" target="_blank" rel="noopener">
+      Записаться
+    </a>
+  </div>
+
+  <!-- ===== COOKIE ===== -->
+  <div class="cookie-banner" id="cookieBanner">
+    <p>Мы используем cookie для улучшения сайта.</p>
+    <button class="btn btn--ghost btn--sm" id="cookieAccept">Понятно</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
