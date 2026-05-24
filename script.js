@@ -40,10 +40,9 @@ window.addEventListener('scroll', () => {
 =========================== */
 const burger = document.getElementById('burger');
 const nav = document.getElementById('nav');
-const navMobile = document.getElementById('nav-mobile');
 
 burger.addEventListener('click', () => {
-  navMobile.classList.toggle('open');
+  nav.classList.toggle('open');
   const spans = burger.querySelectorAll('span');
   burger.classList.toggle('active');
   if (burger.classList.contains('active')) {
@@ -55,201 +54,36 @@ burger.addEventListener('click', () => {
   }
 });
 
-navMobile.querySelectorAll('.nav__link').forEach(link => {
+nav.querySelectorAll('.nav__link').forEach(link => {
   link.addEventListener('click', () => {
-    navMobile.classList.remove('open');
+    nav.classList.remove('open');
     burger.classList.remove('active');
     burger.querySelectorAll('span').forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
   });
 });
 
 /* ===========================
-   INFINITE SLIDER FACTORY
+   PORTFOLIO FILTER
 =========================== */
-function makeSlider(gridId, prevId, nextId, cardW) {
-  const grid = document.getElementById(gridId);
-  if (!grid) return;
-  let idx = 0, busy = false;
+const tabs = document.querySelectorAll('.portfolio__tab');
+const items = document.querySelectorAll('.portfolio__item');
 
-  function getItems() {
-    return [...grid.querySelectorAll(':scope > *:not(.clone)')];
-  }
+tabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    tabs.forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
 
-  function init() {
-    busy = true;
-    grid.querySelectorAll('.clone').forEach(c => c.remove());
-    const items = getItems();
-    idx = 0;
-    if (!items.length) { busy = false; return; }
+    const filter = tab.dataset.filter;
     items.forEach(item => {
-      const c = item.cloneNode(true);
-      c.classList.add('clone');
-      grid.appendChild(c);
-    });
-    [...items].reverse().forEach(item => {
-      const c = item.cloneNode(true);
-      c.classList.add('clone');
-      grid.prepend(c);
-    });
-    grid.scrollLeft = items.length * cardW;
-    setTimeout(() => { busy = false; }, 50);
-  }
-
-  grid.addEventListener('scroll', () => {
-    if (busy) return;
-    const n = getItems().length;
-    if (!n) return;
-    const W = n * cardW;
-    if (grid.scrollLeft >= 2 * W) {
-      busy = true; grid.scrollLeft -= W;
-      setTimeout(() => { busy = false; }, 80);
-    } else if (grid.scrollLeft < W) {
-      busy = true; grid.scrollLeft += W;
-      setTimeout(() => { busy = false; }, 80);
-    }
-  }, { passive: true });
-
-  function navigate(dir) {
-    if (busy) return;
-    const n = getItems().length;
-    if (!n) return;
-    const W = n * cardW;
-    busy = true;
-    if (dir > 0 && idx === n - 1) {
-      grid.scrollLeft = W - cardW; idx = 0;
-      setTimeout(() => {
-        grid.scrollBy({ left: cardW, behavior: 'smooth' });
-        setTimeout(() => { busy = false; }, 450);
-      }, 20);
-    } else if (dir < 0 && idx === 0) {
-      grid.scrollLeft = 2 * W; idx = n - 1;
-      setTimeout(() => {
-        grid.scrollBy({ left: -cardW, behavior: 'smooth' });
-        setTimeout(() => { busy = false; }, 450);
-      }, 20);
-    } else {
-      idx += dir;
-      grid.scrollBy({ left: dir * cardW, behavior: 'smooth' });
-      setTimeout(() => { busy = false; }, 450);
-    }
-  }
-
-  document.getElementById(prevId).addEventListener('click', () => navigate(-1));
-  document.getElementById(nextId).addEventListener('click', () => navigate(1));
-  init();
-}
-
-/* ===========================
-   PORTFOLIO: TABS + INFINITE SCROLL
-=========================== */
-(function () {
-  const grid = document.getElementById('portfolioGrid');
-  const CARD = 296; // 280px + 16px gap
-  let idx = 0;
-  let busy = false;
-
-  function getItems() {
-    return [...grid.querySelectorAll('.portfolio__item:not(.clone)')]
-      .filter(i => i.style.display !== 'none');
-  }
-
-  function initLoop() {
-    busy = true;
-    grid.querySelectorAll('.clone').forEach(c => c.remove());
-    const items = getItems();
-    idx = 0;
-    if (!items.length) { busy = false; return; }
-
-    // Клоны в конец (для правого перехода) и в начало (для левого)
-    items.forEach(item => {
-      const c = item.cloneNode(true);
-      c.classList.add('clone');
-      grid.appendChild(c);
-    });
-    [...items].reverse().forEach(item => {
-      const c = item.cloneNode(true);
-      c.classList.add('clone');
-      grid.prepend(c);
-    });
-
-    // Стартуем на оригиналах (сразу после стартовых клонов)
-    grid.scrollLeft = items.length * CARD;
-    setTimeout(() => { busy = false; }, 50);
-  }
-
-  // Свайп: автокоррекция при выходе за пределы оригиналов
-  grid.addEventListener('scroll', () => {
-    if (busy) return;
-    const n = getItems().length;
-    if (!n) return;
-    const W = n * CARD;
-    if (grid.scrollLeft >= 2 * W) {
-      busy = true;
-      grid.scrollLeft -= W;
-      idx = Math.round((grid.scrollLeft - W) / CARD);
-      setTimeout(() => { busy = false; }, 80);
-    } else if (grid.scrollLeft < W) {
-      busy = true;
-      grid.scrollLeft += W;
-      idx = Math.round((grid.scrollLeft - W) / CARD);
-      setTimeout(() => { busy = false; }, 80);
-    }
-  }, { passive: true });
-
-  function navigate(dir) {
-    if (busy) return;
-    const items = getItems();
-    const n = items.length;
-    if (!n) return;
-    const W = n * CARD;
-    busy = true;
-
-    if (dir > 0 && idx === n - 1) {
-      // Правый переход: последняя → первая
-      // Прыжок на clone последней в start_clones, затем плавно вперёд на первую оригинал
-      grid.scrollLeft = W - CARD;
-      idx = 0;
-      setTimeout(() => {
-        grid.scrollBy({ left: CARD, behavior: 'smooth' });
-        setTimeout(() => { busy = false; }, 450);
-      }, 20);
-    } else if (dir < 0 && idx === 0) {
-      // Левый переход: первая → последняя
-      // Прыжок на clone первой в end_clones, затем плавно назад на последнюю оригинал
-      grid.scrollLeft = 2 * W;
-      idx = n - 1;
-      setTimeout(() => {
-        grid.scrollBy({ left: -CARD, behavior: 'smooth' });
-        setTimeout(() => { busy = false; }, 450);
-      }, 20);
-    } else {
-      idx += dir;
-      grid.scrollBy({ left: dir * CARD, behavior: 'smooth' });
-      setTimeout(() => { busy = false; }, 450);
-    }
-  }
-
-  document.getElementById('arrowPrev').addEventListener('click', () => navigate(-1));
-  document.getElementById('arrowNext').addEventListener('click', () => navigate(1));
-
-  // Табы
-  document.querySelectorAll('.portfolio__tab').forEach(tab => {
-    tab.addEventListener('click', () => {
-      document.querySelectorAll('.portfolio__tab').forEach(t => t.classList.remove('active'));
-      tab.classList.add('active');
-      const filter = tab.dataset.filter;
-      grid.querySelectorAll('.portfolio__item:not(.clone)').forEach(item => {
-        item.style.display = (filter === 'all' || item.dataset.cat === filter) ? '' : 'none';
-      });
-      initLoop();
+      if (filter === 'all' || item.dataset.cat === filter) {
+        item.style.display = '';
+        item.style.animation = 'fadeInUp .4s ease forwards';
+      } else {
+        item.style.display = 'none';
+      }
     });
   });
-
-  initLoop();
-})();
-
-// Слайдер услуг (280px карточка + 20px gap = 300)
-makeSlider('servicesGrid', 'srvArrowPrev', 'srvArrowNext', 300);
+});
 
 /* ===========================
    FAQ ACCORDION
